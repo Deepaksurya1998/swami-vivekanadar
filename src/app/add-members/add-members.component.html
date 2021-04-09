@@ -1,0 +1,30 @@
+<app-navbar>
+
+</app-navbar>
+    <div class="flex flex-1 items-center justify-center py-10 bg-yellow-900" >
+        <div class="rounded-lg sm:border-2 px-4 lg:px-24 py-16 lg:max-w-xl sm:max-w-md w-full text-center">
+            <form #form="ngForm" autocomplete="off" class="text-center" (submit)="onSubmit(form)">
+                <h1 class="font-bold tracking-wider text-3xl mb-8 w-full text-white">
+                    Add Members
+                </h1>
+                <div class="py-2 text-left form-group">
+                    <input type="text" name="fullname" #fullname="ngModel" [(ngModel)]="members.formData.fullname" class=" border-2 border-gray-100 focus:outline-none bg-gray-100 block w-full py-2 px-4 rounded-lg focus:border-gray-700 " placeholder="Member-name" required />
+                </div>
+                <div class="py-2 text-left form-group">
+                    <input type="text" name="position" #position="ngModel" [(ngModel)]="members.formData.position" class=" border-2 border-gray-100 focus:outline-none bg-gray-100 block w-full py-2 px-4 rounded-lg focus:border-gray-700 " placeholder="Member-Position" required/>
+                </div>
+                <div class="py-2 form-group">
+                    <button type="submit"  class="border-2 border-gray-100 focus:outline-none bg-yellow-600 text-white font-bold tracking-wider block w-full p-2 rounded-lg focus:border-gray-700 hover:bg-yellow-700">
+                        Add Member
+                    </button>
+                </div>
+            </form>
+           
+           
+        </div>
+
+
+       
+    </div>
+
+    <app-footer></app-footer>

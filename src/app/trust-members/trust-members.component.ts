@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { Members } from '../shared/members.model';
+import { MembersService } from '../shared/members.service';
 
 @Component({
   selector: 'app-trust-members',
@@ -7,9 +9,18 @@ import { Component, OnInit } from '@angular/core';
 })
 export class TrustMembersComponent implements OnInit {
 
-  constructor() { }
+  constructor(private members : MembersService , ) { }
+ list! : Members[];
+  ngOnInit() {
+    this.members.getMembers().subscribe(actionArray => {
+    this.list = actionArray.map(item => {
+      return {
+        id: item.payload.doc.id,
+        ...item.payload.doc.data() as {}
+      } as Members
+    });
 
-  ngOnInit(): void {
+    });
   }
 
 }
